@@ -56,11 +56,12 @@
     <div class="row">
         
         <div class=" contendor col-12 mt-5 ">
-
+            <!-- Imagen de caja de Ofisnack-->
             <div class="col-6 d-none d-md-block float-right">
                 <p class=" ml-2 "><img src="CAJA.png" alt=""></p>
 
             </div>
+            <!-- FIN imagen de caja de Ofisnack-->
 
             <!-- MENSAJE DE AGRADECIMIENTO POR CONTACTOR-->
             <div class="gracias col-xs-12 col-md-6 mt-5  float-left" style="display: none;" >
@@ -70,6 +71,8 @@
 
             </div>
              <!-- *** FIN *****MENSAJE DE AGRADECIMIENTO POR CONTACTOR-->
+
+             <!-- Seccion Formulario de contacto-->
             <div  class="formulario col-xs-12 col-md-6 mt-3  float-left" >
                 <h1 class="text-center mt-3">
                     CONTACTO
@@ -180,9 +183,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script>
+      /* compruebo si se selecciona el ¡valor OTRO en menu desplegable para mostrar campo adicional*/
         const selectElement = document.querySelector('.fuente');
-
-
         selectElement.addEventListener('change', (event) => {
             const comentario = document.querySelector('.comentario');
             
@@ -196,9 +198,10 @@
             }
         });
 
+ /* FIIIN compruebo si se selecciona el ¡valor OTRO en menu desplegable para mostrar campo adicional*/
           /*  document.getElementById("send_action").addEventListener("click", comentario.style.display = 'block');*/
           
-         
+    /* redireccionamiento  al agradecimiento, aunque no funciona con el formulario de Oppen*/      
             function Redirect(){
                 const agradecimiento= document.querySelector('.gracias');
                 const fomulario= document.querySelector('.formulario');
