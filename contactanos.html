@@ -19,13 +19,14 @@
         font-family: 'GothamRounded-Bold', sans-serif;
         
     }
-     /* *{
+      body{
         background-color:#17a2b8;
         color: white;
-      }*/
-      .formulario{
-        background-color:#17a2b8;
-        color: white;
+      }
+      .formulario,form{
+        
+        background-color:#fff;
+        color: #17a2b8;
         border-radius: 40px;
         margin-bottom: 30px;
 
@@ -54,18 +55,26 @@
   <body class="container">
     <div class="row">
         
-        <div class="col-12 mt-5 ">
+        <div class=" contendor col-12 mt-5 ">
 
-            <div class="col-6 float-left">
+            <div class="col-6 d-none d-md-block float-right">
                 <p class=" ml-2 "><img src="CAJA.png" alt=""></p>
 
             </div>
 
-            <div class="formulario col-6 mt-3 float-right" >
-                <h1 class="text-center">
+            <!-- MENSAJE DE AGRADECIMIENTO POR CONTACTOR-->
+            <div class="gracias col-xs-12 col-md-6 mt-5  float-left" style="display: none;" >
+                <h1>Gracias por contactarte con nosotros!</h1>
+                <H5>te invitamos a conocer todos nuestros productos  en : <a href="www.ofidirect.com" style="color:#fff; font-size: 26px;">Ofidirect.com</a> </H5>
+                <img src="BOLSA.png" alt="" style="width: 360px; height: auto;">
+
+            </div>
+             <!-- *** FIN *****MENSAJE DE AGRADECIMIENTO POR CONTACTOR-->
+            <div  class="formulario col-xs-12 col-md-6 mt-3  float-left" >
+                <h1 class="text-center mt-3">
                     CONTACTO
                 </h1>
-                <h6>
+                <h6 class=" m-2">
                     Ingresá tus datos y un asesor de ventas se pondrá en contacto dentro de las próximas 24hs. hábiles.
                     <br>
                     ¿Tenés alguna duda? Llamanos al: 4876-5555
@@ -89,13 +98,13 @@
                         <label hidden class="active" for="Telefono">
                             Telefono:
                         </label>
-                        <input class="validate form-control" type="" value="" name="Telefono" id="Telefono" placeholder="Telefono" required="required" />
+                        <input class="validate form-control" type="" value="" name="Telefono" id="Telefono" placeholder="Teléfono" required="required" />
                     </div>
                     <div class="my-2">
                         <label hidden class="active" for="CorreoElectronico">
                             Correo Electronico:
                         </label>
-                        <input class="validate form-control" type="" value="" name="CorreoElectronico" id="CorreoElectronico" placeholder="Correo Electronico" required="required" />
+                        <input class="validate form-control" type="" value="" name="CorreoElectronico" id="CorreoElectronico" placeholder="Correo electrónico" required="required" />
                     </div>
                     <div class="my-2">
                         <label  hidden class="active" for="Empresa">
@@ -107,7 +116,7 @@
                         <label  hidden class="active" for="Area">
                             Area:
                         </label>
-                        <input class="validate form-control" type="" value="" name="Area"id="Area" placeholder="Area" required="required" style="margin-left:-15px;"/>
+                        <input class="validate form-control" type="" value="" name="Area"id="Area" placeholder="Área" required="required" style="margin-left:-15px;"/>
                     </div>
                     <div class="col-6 float-left my-2" style="margin-left: 0px;">
                         <label  hidden class="active" for="Empleados">
@@ -117,7 +126,7 @@
                     </div>
                     <div class="my-2">
                         <label   class="active" for="Fuente">
-                            Donde nos Conociste?
+                            Dónde nos conociste?
                         </label>
                         <select class="validate fuente form-control" aria-placeholder="jsdja" name="Fuente" id="Fuente" required="required">
                             <option value="" disabled> Seleccionar</option>
@@ -141,7 +150,7 @@
                         <label class="active" for="Comentario">
                             Donde?
                         </label>
-                        <input class="validate  form-control" type="text-area" value="" name="Comentario" id="Comentario" placeholder="" required="required" />
+                        <input class="validate  form-control" type="text-area" value="" name="Comentario" id="Comentario" placeholder="" />
                     </div>
                     <script>
                         var useCaptcha = document.getElementById('UserCaptcha');
@@ -154,8 +163,8 @@
                         }
                     </script>
                     <p class="text-center">
-                        <button class="col-6 btn btn-warning badge-pill waves-effect waves-light hide" type="submit" id="send_action"
-                        name="action">
+                        <button class="col-6 mt-2 btn btn-warning badge-pill waves-effect waves-light hide" type="submit" id="send_action"
+                        name="action" onclick="Redirect()">
                         Enviar
                     </button>
                     </p>
@@ -173,8 +182,10 @@
     <script>
         const selectElement = document.querySelector('.fuente');
 
+
         selectElement.addEventListener('change', (event) => {
             const comentario = document.querySelector('.comentario');
+            
             /*comentario.textContent = `Te gusta el sabor ${event.target.value}`;*/
          
             if (selectElement.value === "Otro") {
@@ -184,6 +195,22 @@
                 comentario.style.display = 'none'
             }
         });
+
+          /*  document.getElementById("send_action").addEventListener("click", comentario.style.display = 'block');*/
+          
+         
+            function Redirect(){
+                const agradecimiento= document.querySelector('.gracias');
+                const fomulario= document.querySelector('.formulario');
+
+                agradecimiento.style.display = 'block';
+                fomulario.style.display = 'none';
+
+            window.location="https://www.ofidirect.com/ecommerce/#/";
+            setTimeout('Redirect()', 5000);
+            }
+            
+
         
     </script>
   </body>
