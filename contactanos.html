@@ -43,10 +43,9 @@
         -webkit-transition: 0.2s ease-in;
         -o-transition: 0.2s ease-in;
         transition: 0.3s ease-in;
-        
-      
-       
+
         }
+        
         .form-control:focus {
     
      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 255, 255, 1);
@@ -55,7 +54,7 @@
   <body class="container">
     <div class="row">
         
-        <div class="col-12 ">
+        <div class="col-12 mt-5 ">
 
             <div class="col-6 float-left">
                 <p class=" ml-2 "><img src="CAJA.png" alt=""></p>
@@ -120,15 +119,15 @@
                         <label   class="active" for="Fuente">
                             Donde nos Conociste?
                         </label>
-                        <select class="validate form-control" aria-placeholder="jsdja" name="Fuente" id="Fuente" required="required">
-                            
+                        <select class="validate fuente form-control" aria-placeholder="jsdja" name="Fuente" id="Fuente" required="required">
+                            <option value="" disabled> Seleccionar</option>
                             <option value="Linkedin">Linkedin</option>
                             <option value="Instagram">Instagram</option>
                             <option value="Facebook">Facebook</option>
                             <option value="Google">Google</option>
                             <option value="Referido">A través de un referido</option>
                             <option value="Newsletter">Newsletter</option>
-                            <option value=">Otro">Otro</option>
+                            <option value="Otro">Otro</option>
                           </select>
                     </div>
                     <div hidden>
@@ -138,9 +137,9 @@
                         <input class="validate" type=""
                             value="Microsite_Ofisnack" name="Campaign" id="Campaign" placeholder="" required="required" />
                         </div>
-                    <div class="my-2">
+                    <div  class="comentario my-2" style="display:none;">
                         <label class="active" for="Comentario">
-                            Comentario
+                            Donde?
                         </label>
                         <input class="validate  form-control" type="text-area" value="" name="Comentario" id="Comentario" placeholder="" required="required" />
                     </div>
@@ -171,5 +170,21 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script>
+        const selectElement = document.querySelector('.fuente');
+
+        selectElement.addEventListener('change', (event) => {
+            const comentario = document.querySelector('.comentario');
+            /*comentario.textContent = `Te gusta el sabor ${event.target.value}`;*/
+         
+            if (selectElement.value === "Otro") {
+                console.log("seleccionaste "+selectElement.value)
+                comentario.style.display = 'block'
+            }else{
+                comentario.style.display = 'none'
+            }
+        });
+        
+    </script>
   </body>
 </html>
